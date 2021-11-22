@@ -23,6 +23,9 @@ spec:
           - /bin/bash
           - "-c"
           - "sleep 60m"
+        volumeMounts:
+          - mountPath: "/mnt/k8s-pvc"
+            name: configpvc
         imagePullPolicy: IfNotPresent
       restartPolicy: Always
       volumes:
