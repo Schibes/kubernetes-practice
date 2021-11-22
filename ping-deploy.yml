@@ -25,3 +25,7 @@ spec:
           - "sleep 60m"
         imagePullPolicy: IfNotPresent
       restartPolicy: Always
+      volumes:
+        - name: configpvc
+          persistentVolumeClaim:
+            claimName: pvc
