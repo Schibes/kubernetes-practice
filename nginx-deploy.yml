@@ -20,8 +20,7 @@ spec:
       containers:
       - name: nginx
         image: nginx
-        command: ["/bin/sh"]
-        args: ["-c", 'echo "configmap: $CONFIGMAPVAR secret: $SECRETVAR"']
+        command: ["/bin/sh", "-c", 'echo "configmap: $CONFIGMAPVAR secret: $SECRETVAR"']
         env:
         - name: CONFIGMAPVAR
           valueFrom:
