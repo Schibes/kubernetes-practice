@@ -18,16 +18,17 @@ spec:
         app: test-nginx
     spec:
       containers:
-      - image: nginx
-        name: nginx
-        command: ['sh', '-c', 'echo "configmap: $CONFIGMAPVAR secret: $SECRETVAR"']
+      - name: nginx
+        image: nginx
+        command: ["/bin/sh"]
+        args: ["-c", 'echo "configmap: $CONFIGMAPVAR secret: $SECRETVAR"']
         env:
-          name: CONFIGMAPVAR
+        - name: CONFIGMAPVAR
           valueFrom:
             configMapKeyRef:
               name: my-configmap
               key: key1
-          name: SECRETVAR
+        - name: SECRETVAR
           valueFrom:
             secretKeyRef:
               name: my-secret
