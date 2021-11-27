@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: cordilleraselector-pod
+spec:
+  nodeName: u18-cordillera
+  containers:
+  - name: nginx
+    image: nginx

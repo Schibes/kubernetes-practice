@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: vermeerselector-pod
+spec:
+  nodeSelector:
+    baremetal: "vermeer"
+  containers:
+  - name: nginx
+    image: nginx
