@@ -20,5 +20,17 @@ spec:
       containers:
       - image: nginx
         name: nginx
+        command: ['sh', '-c', 'echo "configmap: $CONFIGMAPVAR secret: $SECRETVAR"']
+        env:
+          name: CONFIGMAPVAR
+          valueFrom:
+            configMapKeyRef:
+              name: my-configmap
+              key: key1
+          name: SECRETVAR
+          valueFrom:
+            secretKeyRef:
+              name: my-secret
+              key: secretkey1
         resources: {}
 status: {}
