@@ -11,6 +11,9 @@ spec:
       requests:
         cpu: "1000m"
         memory: "256Mi"
+      limits:
+        cpu: "2000m"
+        memory: "512Mi"
     volumeMounts:
     - name: configmap-volume
       mountPath: /etc/config/configmap
