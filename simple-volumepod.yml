@@ -3,6 +3,7 @@ kind: Pod
 metadata:
   name: volume-pod
 spec:
+  restartPolicy: Always
   containers:
   - name: busybox
     image: busybox
