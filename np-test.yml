@@ -1,0 +1,12 @@
+#network policy test
+apiVersion: v1
+kind: Pod
+metadata:
+  name: np-nginx
+  namespace: np-test
+  labels:
+    app: nginx
+spec:
+  containers:
+  - name: nginx
+    image: nginx
