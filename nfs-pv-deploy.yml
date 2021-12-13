@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nfs-pv-deploy
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nfs-website
+  template:
+    metadata:
+      labels:
+        app: nfs-website
+    spec:
+      volumes:
+      - name: nginx-pv-storage
+        persistentVolumeClaim:
+          claimName: nfs-pvc
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+          name: "nginx-server"
+        volumeMounts:
+          - mountPath: "usr/share/nginx/html"
+            name: nginx-pv-storage
